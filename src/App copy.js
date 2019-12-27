@@ -2,7 +2,6 @@ import React from 'react';
 import Banner from './banner';
 import { createGlobalStyle } from 'styled-components'
 import First from './Fisrt';
-import Footer from './Footer';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -22,8 +21,7 @@ function App() {
     <>
     <GlobalStyle/>
     <Banner></Banner>
-    <First ></First>
-    <Footer></Footer>
+    <First></First>
     </>
   );
 }
