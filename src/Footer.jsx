@@ -22,7 +22,9 @@ background:#f3f3f3;
 
 
 const NavIcon=styled.ul`
-        flex:6;
+        
+        
+        flex:10;
         margin-top:auto;
         margin-bottom:auto;
         display: flex;
@@ -33,7 +35,9 @@ const NavIcon=styled.ul`
   }
 `
 const NavIconItem=styled.li`
-        color:#333333
+        transform:${props => `translateX(-${(props.translate)*350}px)`};
+        transition:0.3s;
+        color:#333333;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size:50px;
         font-family: sans-serif;
@@ -55,8 +59,28 @@ const Img=styled.img`
 const Flex_div=styled.div`
 flex:2;
 `
+const move=()=>{
+        
+}
 const Footer = props => {
+        const [start,setStart]=React.useState(0);
+        const [page,setPage]=React.useState(1);
+        const onClickLeft = () => {
+                
+                if(page==0){
+                        console.log(page)
+                    setPage(1);}
 
+                    else{
+                            setPage(0)
+                    }
+                
+                
+            }
+            if(start==0){
+                setInterval(onClickLeft,3000)
+                setStart(1)
+            }
         return (
         <>
                 <Wrapper >
@@ -64,33 +88,33 @@ const Footer = props => {
                         
                         <Flex_div></Flex_div>
                         <NavIcon>
-                                <NavIconItem>
+                                <NavIconItem translate={(page)}>
                                 <Img src={client1}></Img>
                                 </NavIconItem>
-                                <NavIconItem>
+                                <NavIconItem translate={(page)}>
                                         
                                 <Img src={client2}></Img>
                                 </NavIconItem>
-                                <NavIconItem>
+                                <NavIconItem translate={(page)}>
                                         
                                 <Img src={client3}></Img>
                                 </NavIconItem>
-                                <NavIconItem>
+                                <NavIconItem translate={(page)}>
                                         
                                 <Img src={client4}></Img>
                                 </NavIconItem>
-                                <NavIconItem>
+                                <NavIconItem translate={(page)}>
                                         
                                 <Img src={client5}></Img>
                                 </NavIconItem>
-                                <NavIconItem style={{marginRight:0+'px'}}>
+                                <NavIconItem style={{marginRight:0+'px'}} translate={(page)}>
                                         
                                 <Img src={client6} style={{marginRight:0+'px'}}></Img>
                                 </NavIconItem>
                         </NavIcon>
 
                         <Flex_div></Flex_div>
-                        
+                       
                 </Wrapper>
         </>
         )

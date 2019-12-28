@@ -1,9 +1,10 @@
 import React from "react"
 import styled from 'styled-components'
-import {Link} from 'react-router-dom'
+import list from "./list-24px (1).svg"
 
 
 const Wrapper=styled.div`
+background:white;
 width:100%;
 height:130px;
 display:flex;
@@ -15,6 +16,13 @@ position:fixed;
     right:0;
 z-index:9000;
 transition:0.2s;
+@media only screen and (max-width: 768px) {
+                .ss{
+                        display:none;
+                }
+                .hidden{display:${props=>props.clicked ? "block":"none"};}
+        }
+
 `
 
 const Logo=styled.img`
@@ -28,6 +36,7 @@ display:flex;
 flex:1;
 `
 const NavTextItem=styled.li`
+font-family: 'Roboto', sans-serif;
 font-weight:625;
 list-style:none;
 
@@ -39,12 +48,16 @@ const NavIcon=styled.ul`
  
         display: flex;
         
+        @media only screen and (max-width: 768px) {
+                display:none;
+        }
+        
 `
 const NavIconItem=styled.li`
         
-        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size:20px;
-        font-family: sans-serif;
+        opacity: 0.9;
+        font-family: 'Roboto', sans-serif;
+        font-size:19px;
         height: 100%;
         width: fit-content;
         list-style:none;
@@ -57,7 +70,14 @@ const NavIconItem=styled.li`
 `
 const Img=styled.img`
         list-style:none;
-        height: 100%;
+        height: 60%;
+        display:none;
+        margin:auto 0;
+        @media only screen and (max-width: 768px) {
+                margin-left:auto;
+                display:flex;
+                margin-right:0;
+        }
 `
 const setFont=(event)=>{
         let asd =document.getElementsByClassName('asd')
@@ -74,21 +94,38 @@ const myFunction=(e)=>{
         e.target.parentNode.style.height=68+'px'
     
 }
-const Banner = props => {
+const Hidden_ul=styled.ul`
 
+width:100%;
+display:none;
+`
+const Hidden_li=styled.li`
+transition:2s;
+background:white;
+list-style:none;
+opacity: 0.9;
+        font-family: 'Roboto', sans-serif;
+        font-size:19px;
+        margin-top:4px;
+        
+`
+
+
+const Banner = props => {
+        const [test,setTest]=React.useState(false)
         return (
         <>
-                <Wrapper onWheel  = {myFunction}>
+                <Wrapper onWheel  = {myFunction} clicked={test}>
                         
-                        <div style={{width:11+'%'}}></div>
+                        <div className='ss' style={{width:11+'%'}}></div>
                         <NavText>
-                        <NavTextItem  style={{fontSize:40+'px'}}>advnt.</NavTextItem>
+                        <NavTextItem  style={{fontSize:40+'px'}}>React.</NavTextItem>
                         
                         </NavText>
 
-                        <NavIcon>
+                        <NavIcon >
                                 <NavIconItem>
-                                product
+                                Product
                                 </NavIconItem>
                                 <NavIconItem>
                                         
@@ -100,15 +137,44 @@ const Banner = props => {
                                 </NavIconItem>
                                 <NavIconItem>
                                         
-                                review
+                                Review
                                 </NavIconItem>
                                 <NavIconItem>
                                         
-                                contact
+                                Contact
                                 </NavIconItem>
                         </NavIcon>
 
-                        <div style={{width:20+'%'}}></div>
+
+                        <a><Img src={list} onClick={()=>setTest(!test)}></Img>
+                        <div>
+                        <Hidden_ul className='hidden'  >
+                                <Hidden_li>
+                                Product
+                                </Hidden_li>
+                                <Hidden_li>
+                                        
+                                Features
+                                </Hidden_li>
+                                <Hidden_li>
+                                        
+                                Pricing
+                                </Hidden_li>
+                                <Hidden_li>
+                                        
+                                Review
+                                </Hidden_li>
+                                <Hidden_li>
+                                        
+                                Contact
+                                </Hidden_li>
+                        </Hidden_ul>
+                        </div>
+                        
+                        
+                        </a>
+                        
+                        <div className='ss' style={{width:20+'%' }}></div>
                         
                 </Wrapper>
         </>
