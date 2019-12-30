@@ -22,6 +22,9 @@ transition:0.2s;
                 }
                 .hidden{display:${props=>props.clicked ? "block":"none"};}
         }
+        &{
+                height:65px;
+        }
 
 `
 
@@ -70,7 +73,7 @@ const NavIconItem=styled.li`
 `
 const Img=styled.img`
         list-style:none;
-        height: 60%;
+        height: 150%;
         display:none;
         margin:auto 0;
         @media only screen and (max-width: 768px) {
@@ -111,6 +114,14 @@ opacity: 0.9;
 `
 
 
+const Wra = styled.div`
+ul{
+
+}
+li{
+
+}
+`
 const Banner = props => {
         const [test,setTest]=React.useState(false)
         return (

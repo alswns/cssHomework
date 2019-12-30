@@ -1,9 +1,11 @@
 import React from 'react';
 import Banner from './banner';
 import { createGlobalStyle } from 'styled-components'
+
 import First from './Fisrt';
 import Footer from './Footer';
 import Important_components from './Important_components';
+import styled from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -14,10 +16,28 @@ const GlobalStyle = createGlobalStyle`
     text-decoration:none;
     color:white;
   }
-body{
-  
+*{
+  animation-name:회전s;
+animation-duration:1s;
+
 }
+@keyframes 회전s{
+    
+    0%{
+        transform:rotateZ(0deg);
+        
+
+    }
+    
+    100% {
+        transform:rotateZ(360deg);           
+    }
+}
+
+
 `
+
+
 function App() {
   return (
     <>

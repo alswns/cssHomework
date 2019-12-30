@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 import styled from 'styled-components'
 
 import client1 from './client1.png'
@@ -23,8 +23,8 @@ background:#f3f3f3;
 
 const NavIcon=styled.ul`
         
-        
-        flex:10;
+        background:#f3f3f3;
+        flex:14;
         margin-top:auto;
         margin-bottom:auto;
         display: flex;
@@ -35,6 +35,8 @@ const NavIcon=styled.ul`
   }
 `
 const NavIconItem=styled.li`
+        opacity: 0.6;
+        background:#f3f3f3;
         transform:${props => `translateX(-${(props.translate)*350}px)`};
         transition:0.3s;
         color:#333333;
@@ -45,16 +47,15 @@ const NavIconItem=styled.li`
         width: fit-content;
         list-style:none;
         margin-right:8%;
-        &:hover{
-        font-weight:normal;
-        color: #b3b3b3
+        
 }; 
-        transition:0.2s;
+        
 `
 const Img=styled.img`
         width:150px;
-        opacity:0.5;
+        
         margin-right:80px;
+        
 `
 const Flex_div=styled.div`
 flex:2;
@@ -64,21 +65,21 @@ const move=()=>{
 }
 const Footer = props => {
         const [start,setStart]=React.useState(0);
-        const [page,setPage]=React.useState(1);
+        const [page,setPage]=React.useState(0);
         const onClickLeft = () => {
                 
                 if(page==0){
                         console.log(page)
-                    setPage(1);}
-
+                        setPage(1)
+                }
                     else{
-                            setPage(0)
+                            console.log(page)
+                        setPage(0)
                     }
-                
-                
             }
             if(start==0){
-                setInterval(onClickLeft,3000)
+                    console.log('start')
+                setInterval(onClickLeft,300)
                 setStart(1)
             }
         return (

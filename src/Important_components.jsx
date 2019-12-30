@@ -18,13 +18,15 @@ h6{
 }
 `
 const Main_text=styled.div`
-font-weight:bold;
-font-size:40px;
-font-family: inherit;
+font-weight:700;
+font-size:34px;
+font-family: Poppins;
 `
 const Sub_text=styled.div`
 margin-top:6px;
 margin-bottom:30px;
+font-family: 'Roboto';
+opacity: 0.8;
 `
 const Img=styled.img`
 width:80px;
@@ -35,6 +37,7 @@ box-sizing:border-box;
 const Flex_div=styled.div`
 display:flex;
 flex-direction:row;
+margin-bottom:15px;
 `
 function Important_components(props){
 
